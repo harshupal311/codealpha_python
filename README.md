@@ -1,64 +1,54 @@
-# codealpha_hangman game 
-python
-import random
+Hangman Game in Python
+A simple command-line Hangman Game built using Python. The player guesses letters to uncover a hidden word before running out of attempts.
 
-# List of predefined words
-words = ["python", "apple", "tiger", "chair", "robot"]
+✨ Features
+Random word selection using random
 
-# Choose a random word
-word = random.choice(words)
+Tracks guessed letters
 
-# Store guessed letters
-guessed_letters = []
+Input validation
 
-# Number of incorrect guesses allowed
-attempts = 6
+Limited attempts system
 
-print("🎮 Welcome to Hangman!")
+Win & Game Over conditions
 
-# Game loop
-while attempts > 0:
+Beginner-friendly project
 
-    # Display the word
-    display_word = ""
+🧠 How It Works
+A random word is selected from a list.
 
-    for letter in word:
-        if letter in guessed_letters:
-            display_word += letter + " "
-        else:
-            display_word += "_ "
+The player guesses one letter at a time.
 
-    print("\nWord:", display_word)
+Correct guesses reveal letters in the word.
 
-    # Check if player guessed the full word
-    if "_" not in display_word:
-        print("\n🎉 Congratulations! You guessed the word:", word)
-        break
+Wrong guesses reduce remaining attempts.
 
-    print("Guessed letters:", " ".join(guessed_letters))
+The game ends when:
 
-    guess = input("Guess a letter: ").lower()
+The word is guessed 🎉
 
-    # Validate input
-    if len(guess) != 1 or not guess.isalpha():
-        print("⚠ Please enter only ONE alphabet letter.")
-        continue
+Attempts reach 0 💀
 
- 
-    if guess in guessed_letters:
-        print("⚠ You already guessed that letter.")
-        continue
+▶️ Run the Game
+python hangman.py
+🛠 Concepts Used
+Loops
 
-    guessed_letters.append(guess)
+Conditions
 
-    # Check guess
-    if guess in word:
-        print("✅ Correct guess!")
-    else:
-        attempts -= 1
-        print("❌ Wrong guess!")
-        print("Attempts left:", attempts)
+Lists
 
-if attempts == 0:
-    print("\n💀 Game Over!")
-    print("The word was:", word)
+Strings
+
+User Input
+
+random Module
+
+🚀 Future Improvements
+ASCII Hangman design
+
+More words
+
+Score system
+
+Multiplayer mode
